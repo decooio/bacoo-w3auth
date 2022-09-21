@@ -69,6 +69,7 @@ export async function userPlan(req: any, res: any, next: any) {
             if (axios.isAxiosError(error) && !_.isEmpty(error.response)) {
                 return res.status(error.response.status).json(error.response.data);
             } else {
+                console.log(`query user plan err: ${error.message}`);
                 return CommonResponse.serverError('server err').send(res);
             }
         }
